@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.http import HttpResponse
+from django.shortcuts import render
 
-urlpatterns = [
+def func(request):
+    return render(request ,'index.html')
+def step(request, d,c):
+    return HttpResponse(int(d)**(int(c)))
+
+urlpatterns= [
     url(r'^admin/', admin.site.urls),
-    url(r'' , include("core.urls"))
+    url(r'^$', func),
+    url(r'^step/(?P<d>\w+)/(?P<c>\w+)$', step)
 ]
