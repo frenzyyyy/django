@@ -19,12 +19,18 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def func(request):
-    return render(request ,'index.html')
+    return render(request,'index.html')
+def func1(request):
+    return render(request, 'pyt.html')
 def step(request, d,c):
     return HttpResponse(int(d)**(int(c)))
+def inside(request , r ,t):
+    return HttpResponse(int(r)//int(t))
 
 urlpatterns= [
     url(r'^admin/', admin.site.urls),
     url(r'^$', func),
-    url(r'^step/(?P<d>\w+)/(?P<c>\w+)$', step)
+    url(r'^step/(?P<d>\w+)/(?P<c>\w+)$', step),
+    url(r'^inside/(?P<r>\w+)/(?P<t>\w+)$', inside),
+    url(r'^main/$' , func1)
 ]
