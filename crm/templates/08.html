@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Test Site</title>
+<link href="../static/css/bootstrap.min.css", rel="stylesheet">
+<link href="../static/css/jumbotron.css", rel="stylesheet">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+</head>
+
+<body>
+
+<div>
+
+        <a class="navbar-brand" href="http://127.0.0.1:8000/main">TO LOOK CSS</a>
+        <a class="navbar-brand" href="http://127.0.0.1:8000">К Списку Инспекций</a>
+</div>
+   <table class="table table-hover">
+        <p>   <th><b>IP ADDRESS</b></th>     <th> <b> Имя </b></th> <th><b> Модель</b></th>  <th><b>  Версия прошивки  </b></th>    <td> <b> Номер Инспекции  </b></td>
+        <td> <b> Примечание  </b></td></p>
+{% for data in Switch %}
+        <tr class="info"> <p><td><a href=telnet:{{data.IP_ADDRESS }}>{{data.IP_ADDRESS }}</a></td> <td>{{data.HOSTNAME}}</td> <td>{{data.MODEL}}</td>
+            <td> {{data.FIRMWARE}}</td> <td>{{data.INSPECTION}}</td> <td>{{data.Description}}</td> </p></tr>
+{% endfor %}
+
+    </table>
+<img src="../static/img/7708.jpg"/>
+</body>
+</html>
